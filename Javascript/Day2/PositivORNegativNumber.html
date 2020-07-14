@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+
+    <script>
+        var numbers = [-3, -2, -4, 5, 2, -5];
+
+        function PositivORNegativNumber(x) {
+            var result = 1;
+            for (var i = 0; i < x.length; i++) {
+                result = x[i] * result;
+            }
+            if (result < 0) {
+                alert("the result is positiv number");
+            } else {
+                alert("this result is negativ number");
+            }
+        }
+        PositivORNegativNumber(numbers);
+    </script>
+</body>
+
+</html>

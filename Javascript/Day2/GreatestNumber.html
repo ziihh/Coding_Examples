@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+
+    <script>
+        var numbers = [1000, -2, -4, 5, 2, -5];
+
+        function greatestNumber(numberArray){
+            var result;
+            for(var i = 0; i < numberArray.length; i++){
+                if(i == 0){
+                    result = numberArray[i];
+                } else if(result < numberArray[i]){
+                    result = numberArray[i];
+                }
+
+            }
+            alert( "From this array [ " + numberArray +  " ] \n The greatest number is " + result);
+        }
+
+        greatestNumber(numbers);
+
+    </script>
+</body>
+
+</html>
