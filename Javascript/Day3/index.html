@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="start"> Start </button>
+    <button id="reset"> Reset </button>
+    <div class="timer"></div>
+
+    <script>
+
+       $(document).ready(function(){
+
+            var second = "00";
+            var minutes = "00";
+            var hour = "00";
+            var interval;
+
+            // Displaying the timer.
+            $(".timer").text(hour + ":" + minutes + ":" + second);
+
+            // Increase seconds, minutes and hours and resets them after it runs x-times.
+            function timer(){
+
+                second = parseInt(second) + 1;
+
+                if(second > 9){
+                    second = second.toString();
+                } else {
+                    second = "0" + second.toString();
+                }
+
+                if(parseInt(second) == 3){
+                    minutes = parseInt(minutes) + 1;
+                    second = "00";
+                    if(minutes > 9){
+
+                        minutes = minutes.toString();
+
+                    } else {
+                        minutes = "0" + minutes.toString();
+                    }
+                }
+                if(parseInt(minutes) == 3){
+                    hour = parseInt(hour) + 1;
+                    minutes = "00";
+                    if(hour > 9){
+                        hour = hour.toString();
+                    } else {
+                        hour = "0" + hour.toString();
+                    }
+                }
+                if(parseInt(hour) == 24){
+                    hour = "00";
+                }
+
+                $(".timer").text(hour + ":" + minutes + ":" + second);
+            }
+            // OnClick starts the timer.
+            $("#start").click(function(){
+                interval = setInterval(timer, 1000);
+            })
+            // OnClick resets the timer.
+            $("#reset").click(function(){
+                clearInterval(interval);
+                second = "00";
+                minutes = "00";
+                hour = "00";
+                $(".timer").text(hour + ":" + minutes + ":" + second);
+            })
+
+       })
+
+    </script>
+</body>
+
+</html>
